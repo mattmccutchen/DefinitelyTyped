@@ -28,6 +28,12 @@ interface MonkeyDAO {
 var Monkeys = new Mongo.Collection<MonkeyDAO>('monkeys');
 //var x = new Mongo.Collection<xDAO>('x');
 //var y = new Mongo.Collection<yDAO>('y');
+
+declare module "meteor/meteor" {
+    namespace Meteor {
+        export const isModuleTest: boolean;
+    }
+}
 /********************************** End setup for tests *********************************/
 
 
@@ -36,6 +42,7 @@ var Monkeys = new Mongo.Collection<MonkeyDAO>('monkeys');
  * Tests Meteor.isServer, Meteor.startup, Collection.insert(), Collection.find()
  */
 if (Meteor.isServer) {
+    console.log(Meteor.isModuleTest);
     Meteor.startup(function () {
         if (Rooms.find().count() === 0) {
             Rooms.insert({ name: "Initial room" });

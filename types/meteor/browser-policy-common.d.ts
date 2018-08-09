@@ -1,40 +1,13 @@
-
-declare module BrowserPolicy {
-    var framing: {
-        disallow(): void;
-        restrictToOrigin(origin: string): void;
-        allowAll(): void;
-    };
-
-    var content: {
-        allowEval(): void;
-        allowInlineStyles(): void;
-        allowInlineScripts(): void;
-        allowSameOriginForAll(): void;
-        allowDataUrlForAll(): void;
-        allowOriginForAll(origin: string): void;
-        allowImageOrigin(origin: string): void;
-        allowMediaOrigin(origin: string): void;
-        allowFontOrigin(origin: string): void;
-        allowStyleOrigin(origin: string): void;
-        allowScriptOrigin(origin: string): void;
-        allowFrameOrigin(origin: string): void;
-        allowContentTypeSniffing(): void;
-        allowAllContentOrigin(): void;
-        allowAllContentDataUrl(): void;
-        allowAllContentSameOrigin(): void;
-
-        disallowAll(): void;
-        disallowInlineStyles(): void;
-        disallowEval(): void;
-        disallowInlineScripts(): void;
-        disallowFont(): void;
-        disallowObject(): void;
-        disallowAllContent(): void;
-    };
-}
+import BrowserPolicy = _MeteorGlobals.BrowserPolicy;
 
 declare module "meteor/browser-policy-common" {
+    import * as _MeteorBrowserPolicyCommon from "meteor/browser-policy-common";
+    global {
+        namespace _MeteorGlobals {
+            export import BrowserPolicy = _MeteorBrowserPolicyCommon.BrowserPolicy;
+        }
+    }
+
     module BrowserPolicy {
         var framing: {
             disallow(): void;

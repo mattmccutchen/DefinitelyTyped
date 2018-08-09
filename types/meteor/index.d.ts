@@ -11,7 +11,10 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
 
-/// <reference path="./accounts.d.ts" />
+/** This namespace is internal to the Meteor typings and does not exist at runtime. */
+declare namespace _MeteorGlobals {}
+
+/// <reference path="./accounts-base.d.ts" />
 /// <reference path="./blaze.d.ts" />
 /// <reference path="./browser-policy-common.d.ts" />
 /// <reference path="./check.d.ts" />
